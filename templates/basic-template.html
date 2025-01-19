@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Template</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary-color: #2271b1;
+            --text-color: #1e1e1e;
+            --background-light: #f6f7f7;
+            --spacing-unit: 1rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .template-section {
+            padding: var(--spacing-unit);
+            margin-bottom: var(--spacing-unit);
+            border: 2px dashed transparent;
+            transition: all 0.3s ease;
+        }
+
+        .template-section:hover {
+            border-color: var(--primary-color);
+            background: rgba(34, 113, 177, 0.05);
+        }
+
+        .editable {
+            position: relative;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .editable:hover {
+            background: rgba(34, 113, 177, 0.1);
+            cursor: pointer;
+        }
+
+        .editable::after {
+            content: '✎';
+            position: absolute;
+            right: 0.5rem;
+            top: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .editable:hover::after {
+            opacity: 1;
+        }
+
+        /* Modern Header Styling */
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 5%;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Content Styling */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        /* Footer Styling */
+        footer {
+            background: var(--background-light);
+            padding: 2rem 5%;
+            margin-top: 4rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="template-section" data-section="header">
+        <h1 class="editable" data-type="text">Jouw Website</h1>
+        <nav class="editable" data-type="menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#diensten">Diensten</a></li>
+                <li><a href="#over-ons">Over Ons</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="template-section" data-section="content">
+        <section class="editable" data-type="text">
+            <h2>Welkom op onze website</h2>
+            <p>Klik om deze tekst te bewerken en je eigen content toe te voegen.</p>
+        </section>
+        
+        <section class="editable" data-type="services">
+            <h2>Onze Diensten</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Dienst 1</h3>
+                    <p>Beschrijving van dienst 1</p>
+                </div>
+                <div class="service-card">
+                    <h3>Dienst 2</h3>
+                    <p>Beschrijving van dienst 2</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="template-section" data-section="footer">
+        <p class="editable" data-type="text">© 2024 Jouw Bedrijf - Alle rechten voorbehouden</p>
+    </footer>
+</body>
+</html> 

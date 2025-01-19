@@ -1,0 +1,171 @@
+:root {
+    --editor-bg: #f6f7f9;
+    --toolbar-bg: #fff;
+    --border-color: #e2e4e7;
+    --primary-color: #007cba;
+    --text-color: #1e1e1e;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--editor-bg);
+}
+
+.editor-wrapper {
+    min-height: 100vh;
+}
+
+/* Toolbar Styling */
+.editor-toolbar {
+    position: sticky;
+    top: 0;
+    background: var(--toolbar-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.add-block-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+}
+
+/* Editor Content */
+.editor-content {
+    max-width: 840px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.blocks-container {
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Block Styling */
+.block {
+    position: relative;
+    padding: 1rem;
+    border: 1px solid transparent;
+    margin: 0.5rem 0;
+}
+
+.block:hover {
+    border-color: var(--primary-color);
+}
+
+.block-controls {
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.block:hover .block-controls {
+    opacity: 1;
+}
+
+/* Block Modal */
+.block-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+.block-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 4px;
+    width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.block-categories {
+    display: grid;
+    gap: 2rem;
+}
+
+.block-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.block-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.block-option:hover {
+    background: var(--editor-bg);
+    border-color: var(--primary-color);
+}
+
+.block-handle {
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: move;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.block:hover .block-handle {
+    opacity: 1;
+}
+
+.block-ghost {
+    opacity: 0.5;
+    background: var(--editor-bg);
+}
+
+.image-block {
+    text-align: center;
+}
+
+.image-block img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.block-controls button {
+    padding: 0.25rem 0.5rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.block-controls button:hover {
+    background: var(--editor-bg);
+} 

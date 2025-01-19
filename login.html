@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Website Builder</title>
+    <base href="/testfase2/">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2.39.7/dist/umd/supabase.js"></script>
+    <script>
+        const SUPABASE_URL = 'https://lmfvilfnwsylaxgdnolc.supabase.co'
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxtZnZpbGZud3N5bGF4Z2Rub2xjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY1Mzc2OTMsImV4cCI6MjA1MjExMzY5M30.7to9Db88XzGtJLvjL07Th5ssCqL2e88niyISIBDB9qI'
+        window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    </script>
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <a href="/" class="logo">Website Builder</a>
+        </nav>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-box">
+            <h1>Welkom terug</h1>
+            <p class="auth-subtitle">Log in om verder te gaan met bouwen aan je website</p>
+
+            <div class="auth-tabs">
+                <button class="tab active" onclick="showTab('login')">Inloggen</button>
+                <button class="tab" onclick="showTab('register')">Registreren</button>
+            </div>
+
+            <form id="loginForm" class="auth-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">E-mailadres</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Wachtwoord</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="auth-button">Inloggen</button>
+            </form>
+
+            <form id="registerForm" class="auth-form hidden" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label for="regEmail">E-mailadres</label>
+                    <input type="email" id="regEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Wachtwoord</label>
+                    <input type="password" id="regPassword" name="password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Bevestig wachtwoord</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="auth-button">Registreren</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html> 
